@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom & Blush | Your Style Journey 🌸</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --soft-pink: #ffe4e9;
+            --dark-pink: #ff8fa3;
+            --accent-pink: #fb6f92;
+            --cream: #fffafb;
+            --text-color: #5e4d52;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            background-attachment: fixed;
+            color: var(--text-color);
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        /* Sparkle Element */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            background: #ffb3c1;
+            border-radius: 50%;
+            z-index: 9999;
+        }
+
+        .page-section {
+            display: none;
+            padding: 50px 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 { font-family: 'Playfair Display', serif; font-size: 3.8rem; color: var(--accent-pink); margin-bottom: 0; text-shadow: 2px 2px white; }
+        h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--dark-pink); }
+        .tagline { font-style: italic; margin-top: 5px; color: var(--accent-pink); letter-spacing: 1px; }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 40px;
+            padding: 40px;
+            margin-top: 30px;
+            box-shadow: 0 15px 35px rgba(251, 111, 146, 0.15);
+            border: 2px solid var(--soft-pink);
+            position: relative;
+        }
+
+        .btn {
+            background: var(--accent-pink);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(251, 111, 146, 0.3);
+            margin-top: 25px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn:hover { background: var(--dark-pink); transform: scale(1.05) translateY(-2px); }
+
+        .option-group { margin-bottom: 25px; text-align: left; }
+        label { font-weight: 600; font-size: 0.9rem; color: var(--dark-pink); margin-left: 10px; }
+        
+        select {
+            width: 100%;
+            padding: 15px;
+            border-radius: 20px;
+            border: 2px solid var(--soft-pink);
+            background: var(--cream);
+            font-family: 'Poppins';
+            margin-top: 8px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        /* Result Moodboard Styling */
+        #result-box {
+            display: none;
+            text-align: left;
+            background: #fff;
+            border: 3px dashed var(--accent-pink);
+            padding: 30px;
+            border-radius: 30px;
+            margin-top: 30px;
+            line-height: 1.8;
+        }
+
+        .result-item { margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid var(--soft-pink); }
+        .result-item b { color: var(--accent-pink); font-family: 'Playfair Display'; font-size: 1.1rem; }
+
+        #secret-msg {
+            background: #fff0f3;
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid var(--soft-pink);
+            font-weight: bold;
+            color: var(--accent-pink);
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <section id="home" class="page-section active">
+        <h1>Bloom & Blush</h1>
+        <p class="tagline">where your style blooms 💕</p>
+        <div class="card">
+            <p>Welcome to Bloom & Blush, where soft styles meet confident vibes 🌸 This is your space to explore looks that feel cozy, pretty, bold, or elegant — all depending on you. <br><br>
+            Because your style isn’t random… it’s a reflection of your glow 💖✨</p>
+            <button class="btn" onclick="startQuiz(event)">start your bloom</button>
+        </div>
+    </section>
+
+    <section id="quiz-container" class="page-section">
+        
+        <div id="step-1" class="quiz-step">
+            <h2>Your Bloom Basics</h2>
+            <p class="tagline">let's get to know you, bestie 💗</p>
+            <div class="card">
+                <div class="option-group">
+                    <label>What is your skin tone?</label>
+                    <select id="skin"><option>Fair</option><option>Medium</option><option>Dusky</option></select>
+                </div>
+                <div class="option-group">
+                    <label>What is your body type?</label>
+                    <select id="body"><option>Petite</option><option>Slim</option><option>Curvy</option><option>Athletic</option></select>
+                </div>
+                <div class="option-group">
+                    <label>What's your face shape?</label>
+                    <select id="face"><option>Oval</option><option>Round</option><option>Square</option><option>Heart</option></select>
+                </div>
+                <button class="btn" onclick="nextStep(2)">Next: Dress the Vibe ✨</button>
+            </div>
+        </div>
+
+        <div id="step-2" class="quiz-step" style="display:none;">
+            <h2>Dress the Vibe</h2>
+            <p class="tagline">because outfits speak louder than words ✨</p>
+            <div class="card">
+                <div class="option-group">
+                    <label>What's the occasion?</label>
+                    <select id="occasion">
+                        <option>Birthday Party</option><option>Casual Outing</option><option>School/Library</option><option>Formal</option><option>Night Party</option><option>Festival</option>
+                    </select>
+                </div>
+                <div class="option-group">
+                    <label>Which style do you like most?</label>
+                    <select id="style-pref">
+                        <option>Minimal and Classy</option><option>Bold and Glamorous</option><option>Cute and Trendy</option><option>Traditional and Elegant</option>
+                    </select>
+                </div>
+                <div class="option-group">
+                    <label>Pick a color mood today:</label>
+                    <select id="color-mood">
+                        <option>Soft Pastels</option><option>Neutral Shades</option><option>Bright and Bold</option><option>Dark and Rich Tones</option>
+                    </select>
+                </div>
+                <button class="btn" onclick="nextStep(3)">Next: Makeup Mood 💅</button>
+            </div>
+        </div>
+
+        <div id="step-3" class="quiz-step" style="display:none;">
+            <h2>Makeup Moodboard</h2>
+            <p class="tagline">soft glam or bold queen? 💅</p>
+            <div class="card">
+                <div class="option-group">
+                    <label>What's your vibe?</label>
+                    <select id="makeup-vibe">
+                        <option>Soft, Feminine, Floral</option><option>Clean Girl, Cool, Vibey</option><option>Bold, Elegant, Glamorous</option><option>Traditional and Festive</option>
+                    </select>
+                </div>
+                <button class="btn" onclick="nextStep(4)">Next: Accessory Crush 👄</button>
+            </div>
+        </div>
+
+        <div id="step-4" class="quiz-step" style="display:none;">
+            <h2>Accessory Crush 👄</h2>
+            <p class="tagline">Details make the magic</p>
+            <div class="card">
+                <div class="option-group">
+                    <label>Your go-to accessory style:</label>
+                    <select id="acc-style"><option>Minimal Jewelry</option><option>Statement Pieces</option><option>Trendy Accessories</option><option>Traditional Jewelry</option></select>
+                </div>
+                <div class="option-group">
+                    <label>Which footwear do you prefer?</label>
+                    <select id="footwear"><option>Sneakers/Flats</option><option>Heels</option><option>Boots</option><option>Ethnic Footwear</option></select>
+                </div>
+                <div class="option-group">
+                    <label>Pick a bag:</label>
+                    <select id="bag"><option>Tote Bag</option><option>Sling Bag</option><option>Clutch</option><option>Backpack</option></select>
+                </div>
+                <button class="btn" onclick="showBloomResults()">your bloom and blush look</button>
+                
+                <div id="result-box">
+                    <h3 style="text-align:center; color: var(--accent-pink);">🎀 Your Personalized Look 🎀</h3>
+                    <div id="result-content"></div>
+                    <button class="btn" style="width:100%" onclick="goToMission()">Our Bloom Promise 🌷</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mission" class="page-section">
+        <h2>Our Bloom Promise 🌷</h2>
+        <div class="card">
+            <h3>🎀 Our Mission</h3>
+            <p>At Bloom & Blush, our mission is to celebrate every girl’s uniqueness. We believe that style is not about following trends, but about expressing who you truly are. <br><br>
+            Through personalized outfit, makeup, and accessory recommendations, Bloom & Blush helps you feel confident, comfortable, and beautiful in your own way. Because when you feel good, you naturally bloom 🌸</p>
+            
+            <div class="btn" style="background:#ffc2d1; color:#a44a5f;" onclick="showSecret(event)">Click for a secret message 🤫</div>
+            <div id="secret-msg">You're not "too much" You're just perfectly you💖</div>
+        </div>
+    </section>
+
+    <script>
+        // SPARKLE LOGIC
+        function createSparkles(e) {
+            const x = e.pageX || e.touches[0].pageX;
+            const y = e.pageY || e.touches[0].pageY;
+            for (let i = 0; i < 20; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                const size = Math.random() * 10 + 5;
+                sparkle.style.width = size + 'px';
+                sparkle.style.height = size + 'px';
+                sparkle.style.left = x + 'px';
+                sparkle.style.top = y + 'px';
+                document.body.appendChild(sparkle);
+                const destX = (Math.random() - 0.5) * 250;
+                const destY = (Math.random() - 0.5) * 250;
+                sparkle.animate([
+                    { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+                    { transform: `translate(${destX}px, ${destY}px) scale(0)`, opacity: 0 }
+                ], { duration: 1000, easing: 'ease-out' }).onfinish = () => sparkle.remove();
+            }
+        }
+
+        // NAVIGATION
+        function startQuiz(e) {
+            createSparkles(e);
+            setTimeout(() => {
+                document.getElementById('home').classList.remove('active');
+                document.getElementById('quiz-container').classList.add('active');
+            }, 500);
+        }
+
+        function nextStep(step) {
+            document.querySelectorAll('.quiz-step').forEach(s => s.style.display = 'none');
+            document.getElementById('step-' + step).style.display = 'block';
+        }
+
+        function goToMission() {
+            document.getElementById('quiz-container').classList.remove('active');
+            document.getElementById('mission').classList.add('active');
+        }
+
+        function showSecret(e) {
+            createSparkles(e);
+            document.getElementById('secret-msg').style.display = 'block';
+        }
+
+        // STYLIST LOGIC
+        function showBloomResults() {
+            const style = document.getElementById('style-pref').value;
+            const mood = document.getElementById('color-mood').value;
+            const makeupVibe = document.getElementById('makeup-vibe').value;
+            const foot = document.getElementById('footwear').value;
+            const bag = document.getElementById('bag').value;
+            const acc = document.getElementById('acc-style').value;
+
+            let outfit, makeup, styling;
+
+            if (style === "Minimal and Classy") {
+                outfit = `A sleek slip dress or high-waisted trousers with a silk blouse in <b>${mood}</b>.`;
+                makeup = `The <b>${makeupVibe}</b> look with a focus on glowing skin and a nude lip.`;
+                styling = `Pair your <b>${foot}</b> with a matching <b>${bag}</b> and <b>${acc}</b> for that effortless Parisian vibe.`;
+            } else if (style === "Bold and Glamorous") {
+                outfit = `A statement blazer dress or a sequined co-ord set in <b>${mood}</b>.`;
+                makeup = `A <b>${makeupVibe}</b> style featuring sharp winged liner or a bold dark lip.`;
+                styling = `Rock those <b>${foot}</b>, carry a <b>${bag}</b>, and don't forget your <b>${acc}</b> to own the room!`;
+            } else if (style === "Cute and Trendy") {
+                outfit = `A ruffled mini skirt with a graphic baby tee or a floral sundress in <b>${mood}</b>.`;
+                makeup = `A <b>${makeupVibe}</b> vibe with lots of blush and a high-shine lip gloss.`;
+                styling = `Combine your <b>${foot}</b> with a cute <b>${bag}</b> and <b>${acc}</b> for a perfect aesthetic look.`;
+            } else { // Traditional
+                outfit = `A beautiful Anarkali or a contemporary Lehenga in <b>${mood}</b>.`;
+                makeup = `A <b>${makeupVibe}</b> aesthetic with kohl-rimmed eyes and a tiny bindi.`;
+                styling = `Finish the look with <b>${foot}</b>, a <b>${bag}</b>, and <b>${acc}</b> to celebrate your heritage.`;
+            }
+
+            const htmlContent = `
+                <div class="result-item"><b>👗 The Outfit:</b><br>${outfit}</div>
+                <div class="result-item"><b>💄 Makeup Mood:</b><br>${makeup}</div>
+                <div class="result-item"><b>👠 Styling & Extras:</b><br>${styling}</div>
+                <p style="text-align:center; font-style:italic;">This look was made for your glow! 🌸✨</p>
+            `;
+
+            document.getElementById('result-content').innerHTML = htmlContent;
+            document.getElementById('result-box').style.display = 'block';
+            document.getElementById('result-box').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
